@@ -39,7 +39,7 @@ resource "aws_security_group" "nginx-server-sg" {
         from_port   = 22
         to_port     = 22
         protocol    = "tcp"
-        cidr_blocks = ["0.0.0/0"]
+        cidr_blocks = ["0.0.0.0/0"]
     }
 
     egress {
@@ -52,5 +52,5 @@ resource "aws_security_group" "nginx-server-sg" {
 
 resource "aws_key_pair" "nginx-server-ssh" {
     key_name   = "nginx-server-ssh"
-    public_key = file("~/.ssh/nginx-server-ssh.pub")
+    public_key = file("nginx-server.key.pub")
 }
